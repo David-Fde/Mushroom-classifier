@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+body{
+  background-image: url("./autumn-background.jpg"); 
+  background-color: #cccccc;
+  height: 500px; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover; 
+  font-size: 20px;
+  font-family: Oswald;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh
+}
+
+h1{
+  color:white
+}
+
+.button {
+  border-radius: 10px;
+  background-color: rgba(116,185,68,0.7);
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;  
+  padding: 10px 20px; 
+  font-size: 0.8em;    
+}
+
+
+
+.button:hover {
+  background-color: rgba(116,185,68,1);
+}
