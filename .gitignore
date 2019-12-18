@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+Input/Model/weights-improvement-26-0.93.hdf5
