@@ -24,6 +24,19 @@ h1 {
   font-size: -webkit-xxx-large;
 }
 
+a {
+  border-radius: 10px;
+  background-color: rgba(117, 185, 68, 0.452);
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;  
+  padding: 10px 20px; 
+  font-size: 0.8em; 
+  position: static;
+}
+
+
 .inputfile {
 	width: 0.1px;
 	height: 0.1px;
@@ -51,10 +64,9 @@ h1 {
 }
 
 .inputfile + label {
-	cursor: pointer; /* "hand" cursor */
+  cursor: pointer; 
 }
 
 .inputfile:focus + label {
-	outline: 1px dotted #000;
-	outline: -webkit-focus-ring-color auto 5px;
+	outline: none;
 }

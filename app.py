@@ -26,6 +26,11 @@ def uploader():
         return render_template("prediction.html", pred=pred)
 
 
+@app.route("/map")
+def openMap():
+    return render_template("map.html")
+
+
 def main():
     port = int(os.getenv('PORT', 8080))
     host = os.getenv('IP', '0.0.0.0')

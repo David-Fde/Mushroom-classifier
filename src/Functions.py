@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from keras.models import load_model
 
-CLASSES = ['Niscalo', 'Amanita-muscaria', 'Boletus-edulis',
+CLASSES = ['Amanita-muscaria',  'Niscalo', 'Boletus-edulis',
            'Amanita-phalloides', 'Amanita-cesarea']
 
 
