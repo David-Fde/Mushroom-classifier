@@ -2,8 +2,6 @@ import os
 import src.Functions
 from flask import Flask, render_template, request
 from werkzeug import secure_filename
-from dotenv import load_dotenv
-load_dotenv()
 
 
 app = Flask(__name__)
@@ -13,7 +11,7 @@ app.config['UPLOAD_FOLDER'] = './Output'
 
 
 @app.route("/")
-def main():
+def landing_page():
     return render_template('index.html')
 
 
@@ -26,6 +24,12 @@ def uploader():
         img = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         pred = src.Functions.predict(img, model, weights)
         return render_template("prediction.html", pred=pred)
+
+
+def main():
+    port = int(os.getenv('PORT', 8080))
+    host = os.getenv('IP', '0.0.0.0')
+    run(host=host, port=port, debug=True)
 
 
 if __name__ == "__main__":

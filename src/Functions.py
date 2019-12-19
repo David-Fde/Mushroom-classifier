@@ -18,8 +18,8 @@ def change_name_file(mushroom_name):
         i += 1
 
 
-CLASSES = ['Amanita-cesarea', 'Amanita-muscaria',
-           'Amanita-phalloides', 'Boletus-edulis', 'Niscalo']
+CLASSES = ['Niscalo', 'Amanita-muscaria', 'Boletus-edulis',
+           'Amanita-phalloides', 'Amanita-cesarea']
 
 
 def predict(image_dir, model_dir, weight_dir):
@@ -37,7 +37,6 @@ def predict(image_dir, model_dir, weight_dir):
     npp_image = np.expand_dims(np_image_li, axis=0)
     result = loaded_model.predict(npp_image)
     itemindex = np.where(result == np.max(result))
-
-    #print('\n' + "Probability: "+str(np.max(result)) + ' ====> ' + CLASSES[itemindex[1][0]] + '\n')
-    #prediction = str('\n' + "Probability: " + str(np.max(result)) + ' ====> ' + CLASSES[itemindex[1][0]] + '\n')
-    return {"Probability:": str(np.max(result)) + ' ====> ' + CLASSES[itemindex[1][0]]}
+    pred = (
+        f"Probability: {str(round(np.max(result)*100,2))}% {CLASSES[itemindex[1][0]]}")
+    return pred

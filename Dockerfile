@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+FROM python:3.7
 
 # Copy the contents of the current directory inside the docker image
 ADD . /app
@@ -10,4 +10,4 @@ WORKDIR /app
 RUN pip3 install -r requirements.txt 
 
 # Command to run when starting the container
-CMD ["python3","-u","app.py"]
+CMD ["python3", "app.py"]
