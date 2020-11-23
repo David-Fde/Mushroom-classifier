@@ -70,3 +70,42 @@ a {
 .inputfile:focus + label {
 	outline: none;
 }
+
+
+
+
+
+
+.button {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.button + label {
+  border-radius: 10px;
+  background-color: rgba(117, 185, 68, 0.452);
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;  
+  padding: 10px 20px; 
+  font-size: 0.8em; 
+  position: static;
+}
+
+.button + label,
+.button + label:hover {
+  background-color: rgba(116,185,68,1);
+}
+
+.button + label {
+  cursor: pointer; 
+}
+
+.button:focus + label {
+	outline: none;
+}

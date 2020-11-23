@@ -13,10 +13,8 @@
 
   <h1>Mushroom Identifier</h1>
   <form action="/upload" method="POST" enctype="multipart/form-data">
-
-    <input type="file" name="file" id="file" class="inputfile" />
-    <label for="file">Upload Image</label>
-
+    <input type="file" name="file" id="file" class="inputfile" accept="image/*" />
+    <label for="file">Browse Image</label>
     <input type="submit" name="submit" id="submit" class="inputfile" />
     <label for="submit">Predict</label>
   </form>

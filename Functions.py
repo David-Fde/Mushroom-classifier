@@ -24,6 +24,5 @@ def predict(image_dir, model_dir, weight_dir):
     npp_image = np.expand_dims(np_image_li, axis=0)
     result = loaded_model.predict(npp_image)  # prediction
     itemindex = np.where(result == np.max(result))
-    pred = (
-        f"{str(round(np.max(result)*100,2))}% {CLASSES[itemindex[1][0]]}")
+    pred = (f'{str(round(np.max(result)*100,2))}% {CLASSES[itemindex[1][0]]}')
     return pred, CLASSES[itemindex[1][0]]

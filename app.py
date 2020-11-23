@@ -1,20 +1,22 @@
 import os
-import src.Functions
+import Functions
 from flask import Flask, render_template, request
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
-model = "Input/Model/model.json"
-weights = "Input/Model/weights-improvement-26-0.93.hdf5"
+model = "Input/Model/model.json"  # trained neural network
+weights = "Input/Model/weights-improvement-26-0.93.hdf5"  # weights
 app.config['UPLOAD_FOLDER'] = './Output'
+edible = ("Boletus-edulis", "Niscalo", "Amanita-cesarea")
+toxic = ("Amanita-muscaria", "Amanita-phalloides")
 
-
+# landing page
 @app.route("/")
 def landing_page():
     return render_template('index.html')
 
-
+# function to save and upload an image
 @app.route("/upload", methods=['POST'])
 def uploader():
     if request.method == 'POST':
@@ -22,10 +24,17 @@ def uploader():
         filename = secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         img = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        pred = src.Functions.predict(img, model, weights)
-        return render_template("prediction.html", pred=pred)
+        print(img)
+        if img != "":
+            pred, mushroom = Functions.predict(img, model, weights)
+            if mushroom in edible:
+                return render_template("edible.html", pred=pred)
+            else:
+                return render_template("toxic.html", pred=pred)
+        else:
+            return render_template("index.html")
 
-
+# load map
 @app.route("/map")
 def openMap():
     return render_template("map.html")
